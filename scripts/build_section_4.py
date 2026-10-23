@@ -350,7 +350,7 @@ city_summary
 
     cells.append(md("""
 **Nhận xét phân tích nhóm Thành phố:**
-- **Phân hóa địa lý Bắc–Nam sâu sắc:** Các đô thị đồng bằng sông Hằng ở phía Bắc như **Delhi (AQI trung vị 213.3, 53% ngày Poor trở lên)**, **Lucknow (190.1)**, **Gurugram (180.2)** và **Patna (155.0)** là tâm điểm ô nhiễm nghiêm trọng nhất cả nước.
+- **Phân hóa địa lý Bắc–Nam sâu sắc:** Các đô thị đồng bằng sông Hằng ở phía Bắc như **Delhi (AQI trung vị 236.9, 60.8% ngày Poor trở lên)**, **Lucknow (190.1)**, **Gurugram (180.2)** và **Patna (155.0)** là tâm điểm ô nhiễm nghiêm trọng nhất cả nước.
 - **Khu vực không khí sạch:** Các thành phố ven biển Nam Ấn và vùng núi Đông Bắc như **Aizawl (AQI trung vị 27.2)**, **Shillong (47.0)**, **Thiruvananthapuram (66.3)**, **Coimbatore (73.9)** có tỷ lệ ngày đạt chuẩn Good/Satisfactory vượt trên 88%–99%, hầu như không xuất hiện ngày ô nhiễm mức Poor.
 - **Sự khác biệt giữa các siêu đô thị:** Dù có mật độ giao thông và dân số khổng lồ, Mumbai (AQI trung vị 86.6), Chennai (87.8) và Bengaluru (84.1) có chỉ số AQI thấp hơn Delhi từ **2.4 đến 2.5 lần** nhờ yếu tố địa lý ven biển có gió biển thổi liên tục giúp khuếch tán chất ô nhiễm.
 """))
@@ -478,11 +478,11 @@ Các biểu đồ được xây dựng dựa trên bảng dữ liệu cấp thà
 
 | # | Câu hỏi nghiên cứu | Dạng biểu đồ | Dữ liệu | Tiêu đề kết luận |
 |---|-------------------|--------------|---------|------------------|
-| **1** | Nồng độ AQI phân bố và chênh lệch ra sao giữa các vùng địa lý? | Horizontal Boxplot | `city_day` | *Thành phố Bắc Ấn (Delhi, Lucknow, Patna) ô nhiễm nghiêm trọng, trung vị AQI vượt ngưỡng Poor; chênh lệch gấp 3–8 lần so với Nam Ấn và Đông Bắc* |
-| **2** | Tỷ lệ số ngày người dân từng thành phố phải hít thở không khí độc hại là bao nhiêu? | 100% Stacked Bar | `city_day` | *Hơn 50% số ngày tại Delhi, Lucknow, Gurugram ở mức kém (Poor) trở lên; trong khi Aizawl và Shillong có hơn 98% ngày đạt chuẩn Good/Satisfactory* |
+| **1** | Nồng độ AQI phân bố và chênh lệch ra sao giữa các vùng địa lý? | Horizontal Boxplot | `city_day` | *Ahmedabad và các đô thị Bắc Ấn (Delhi, Gurugram, Lucknow, Patna) ô nhiễm nghiêm trọng, trung vị AQI vượt ngưỡng Poor/Very Poor; chênh lệch gấp 5–13 lần so với Nam Ấn và Đông Bắc* |
+| **2** | Tỷ lệ số ngày người dân từng thành phố phải hít thở không khí độc hại là bao nhiêu? | 100% Stacked Bar | `city_day` | *Hơn 50%–87% số ngày tại Ahmedabad, Delhi, Gurugram ở mức kém (Poor) trở lên; trong khi Aizawl và Shillong có hơn 96%–100% ngày đạt chuẩn Good/Satisfactory* |
 | **3** | Tính chu kỳ mùa vụ của bụi mịn PM2.5 diễn biến như thế nào tại từng thành phố? | Heatmap Month x City | `city_day` | *Ô nhiễm PM2.5 mang tính mùa vụ cực đoan: bùng phát đỉnh điểm vào mùa đông (T11–T1) và chạm đáy vào mùa mưa (T7–T8) — Vượt xa quy chuẩn 24h quốc gia (60 µg/m³)* |
 | **4** | Chu kỳ 24 giờ của các chất biến thiên ra sao và khác biệt thế nào giữa các mùa? | Dual-Panel Line Chart | `city_hour` | *Khí thải giao thông và nghịch nhiệt ban đêm tạo 2 đỉnh ô nhiễm sáng (8–10h) và đêm (20–23h); Ozone đạt đỉnh trưa chiều do phản ứng quang hóa* |
-| **5** | Đợt phong tỏa COVID-19 làm suy giảm nồng độ ô nhiễm cụ thể ra sao tại các thành phố? | Paired Bar Chart | `city_day` | *Đợt phong tỏa COVID-19 làm NO2 giảm mạnh 41% và PM2.5 giảm 34% trên 19 thành phố có dữ liệu đối chiếu; các đại đô thị ghi nhận mức giảm sâu nhất* |
+| **5** | Đợt phong tỏa COVID-19 làm suy giảm nồng độ ô nhiễm cụ thể ra sao tại các thành phố? | Paired Bar Chart | `city_day` | *Đợt phong tỏa COVID-19 làm NO2 giảm mạnh 35.4% và PM2.5 giảm 30.7% trên 19 thành phố có dữ liệu đối chiếu; các đại đô thị ghi nhận mức giảm sâu nhất* |
 """))
 
     # Chart 1
@@ -561,8 +561,12 @@ plt.show()
 
     cells.append(md("""
 **Diễn giải Chart 2:**
-- Tại Delhi, chỉ có **13% số ngày trong năm** đạt chuẩn an toàn, trong khi có tới **53% số ngày** rơi vào mức Poor trở lên (Very Poor chiếm 23%, Severe chiếm 9%).
-- Ngược lại, Aizawl đạt 99% ngày Good; Shillong đạt 98% Good/Satisfactory. Người dân tại vùng đồng bằng Bắc Ấn phải chịu rủi ro phơi nhiễm không khí độc hại cao gấp hàng chục lần so với vùng Đông Bắc.
+- **Gánh nặng ô nhiễm cực đoan tại Ahmedabad và Delhi:**
+  + Tại Ahmedabad, có tới **87.1% số ngày trong năm** rơi vào mức ô nhiễm đáng báo động (trong đó Severe chiếm **39.6%**, Very Poor chiếm **25.6%**, Poor chiếm **21.9%**); số ngày người dân được hít thở không khí an toàn (Good/Satisfactory) chỉ vỏn vẹn **0.7%** (chưa đầy 3 ngày trong cả năm!).
+  + Tại Delhi, có tới **60.8% số ngày** ở mức Poor trở lên (Poor 28.5%, Very Poor 23.9%, Severe 8.3%), trong khi tỷ lệ ngày đạt chuẩn an toàn (Good và Satisfactory) chỉ vỏn vẹn **5.4%** (chưa đầy 20 ngày/năm, hoàn toàn không có ngày nào đạt mức Good).
+  + Các đô thị lân cận cũng chịu chung số phận: Gurugram có **51.1% ngày Poor+**, Lucknow **47.7%**, Patna **43.6%**.
+- **Đối lập tuyệt đối ở nhóm sạch:** Aizawl đạt **100% số ngày an toàn** (Good chiếm 77.7%, Satisfactory 22.3%, hoàn toàn không có ngày nào vượt quá Satisfactory). Coimbatore đạt **96.3% ngày an toàn**, Shillong đạt **96.5%**.
+- **Ý nghĩa y tế:** Bằng chứng cho thấy sự bất bình đẳng phơi nhiễm y tế tàn khốc — người dân tại Bắc Ấn và Ahmedabad phải hít thở không khí độc hại suốt hơn 2/3 thời gian của năm.
 """))
 
     # Chart 3
@@ -706,25 +710,59 @@ plt.show()
     # =========================================================================
     # 4.4 Tổng kết Key Findings
     # =========================================================================
-    cells.append(md("""
-## 4.4. Tổng kết & Phát hiện then chốt (*Key Findings tied directly to Headline Charts*)
+    cells.append(md(r"""
+## 4.4. Tổng kết & Phát hiện then chốt (*Key Findings, Statistical Insights & Strategic Policy Implications*)
 
-Bảng tổng hợp **5 phát hiện then chốt gắn liền với 5 biểu đồ**, phục vụ trực tiếp cho **Mục 5 (Key Findings)** và **Mục 6 (Limitations)** trong Slide báo cáo:
-
-| # | Phát hiện then chốt (*Key Finding*) | Biểu đồ minh chứng | Ý nghĩa thực tiễn & Khuyến nghị chính sách |
-|---|-------------------------------------|-------------------|---------------------------------------------|
-| **1** | **Bắc Ấn là tâm điểm ô nhiễm:** Các đô thị đồng bằng sông Hằng (Delhi, Lucknow, Gurugram, Patna) có trung vị AQI vượt ngưỡng Poor (155–213), cao gấp **3–8 lần** các đô thị ven biển Nam Ấn và đồi núi Đông Bắc. | **Chart 1** | Cần chính sách kiểm soát chất lượng không khí theo lưu vực khí quyển (*Airshed Management*), phối hợp liên vùng thay vì quản lý đơn lẻ theo ranh giới hành chính từng thành phố. |
-| **2** | **Bất bình đẳng về phơi nhiễm y tế:** Người dân tại Delhi phải chịu hơn **53% số ngày trong năm** với không khí ở mức Poor trở lên (trong đó 32% là Very Poor và Severe); ngược lại Aizawl và Shillong có hơn **98% ngày đạt chuẩn Good/Satisfactory**. | **Chart 2** | Ưu tiên trang bị hệ thống lọc không khí y tế dự phòng và cảnh báo nguy cơ hô hấp cho người già và trẻ nhỏ tại các đô thị miền Bắc. |
-| **3** | **Tính mùa vụ cực đoan:** Ô nhiễm PM2.5 bùng phát đỉnh điểm vào mùa đông (T11–T1) với nồng độ gấp **3–4 lần quy chuẩn quốc gia**, và chạm đáy vào mùa mưa (T7–T8). | **Chart 3** | Hiện tượng nghịch nhiệt mùa đông khuếch đại nồng độ phát thải. Các biện pháp khẩn cấp (hạn chế phương tiện, dừng thi công) phải được kích hoạt sớm từ tháng 10 hàng năm. |
-| **4** | **Quy luật phát thải 2 đỉnh giao thông & pha quang hóa Ozone:** PM2.5, NO2, CO đạt 2 đỉnh nhọn vào sáng sớm (8–10h) và đêm muộn (20–23h); Ozone đạt đỉnh vào đầu giờ chiều (13–15h). | **Chart 4** | Khuyến cáo người dân tránh tập thể dục ngoài trời vào sáng sớm mùa đông và đầu giờ chiều nắng gắt; áp dụng kiểm soát giờ xe tải nặng vào nội đô ban đêm. |
-| **5** | **Bằng chứng từ đợt phong tỏa COVID-19:** Khi đóng băng hoạt động kinh tế, NO2 giảm tới **41%** và PM2.5 giảm **34%** trên 19 thành phố đối chiếu. NO2 giảm mạnh hơn do phản ánh sự tê liệt của giao thông cơ giới. | **Chart 5** | Minh chứng chất lượng không khí hoàn toàn có thể cải thiện nhanh chóng nếu có chính sách quyết liệt hạn chế phát thải xe cơ giới và chuyển đổi giao thông xanh. |
+Mục 4.4 đóng vai trò đúc kết toàn diện các kết quả thu được từ phân tích khám phá dữ liệu (EDA) trên 29,531 bản ghi ngày (`city_day`) và 707,875 bản ghi giờ (`city_hour`) của 26 thành phố Ấn Độ (2015–2020), liên kết chặt chẽ giữa **4 họ số đo thống kê (Slide 16)**, **5 phân tích nhóm chuyên sâu**, và **5 biểu đồ then chốt (Headline Charts)**. Đây là cơ sở khoa học để phục vụ trực tiếp cho **Mục 5 (Key Findings)** và **Mục 6 (Limitations & Next Steps)** trong Báo cáo và Slide thuyết trình.
 
 ---
 
-### Giới hạn của dữ liệu & Định hướng tiếp theo (*Limitations & Next Steps — Section 6*):
-- **Giới hạn 1 (Độ phủ thành phố):** Dữ liệu tập trung ở 26 thành phố lớn, chưa bao gồm các đô thị cấp hai, thị trấn nông thôn nơi hoạt động đốt rác thải nông nghiệp và đun nấu sinh khối diễn ra phổ biến. Cần mở rộng mạng lưới quan trắc ra vùng ngoại vi.
-- **Giới hạn 2 (Thiếu dữ liệu khí tượng):** Tập dữ liệu chưa có các thông số nhiệt độ, độ ẩm, tốc độ gió và chiều cao tầng hòa trộn (*mixing layer height*). Việc thu thập bổ sung dữ liệu vi khí hậu là bước tiếp theo thiết yếu để xây dựng mô hình dự báo học máy (Machine Learning) chính xác.
-"""))
+### 1. Bảng tổng hợp 5 phát hiện then chốt gắn liền với 5 Biểu đồ Headline Charts:
+
+| # | Phát hiện then chốt (*Key Finding*) | Biểu đồ minh chứng | Ý nghĩa thực tiễn & Khuyến nghị chính sách (*Policy Implications*) |
+|---|-------------------------------------|-------------------|-------------------------------------------------------------------|
+| **1** | **Tâm điểm ô nhiễm cực đoan tại Ahmedabad và Đồng bằng sông Hằng:**<br>- **Ahmedabad** đứng đầu cả nước với mức độ ô nhiễm kỷ lục: AQI trung vị **350.8** (mức Very Poor), IQR trải rộng từ 253.5 đến 483.7, xuất hiện nhiều ngoại lai chạm ngưỡng kịch khung 600 (*Severe*).<br>- Kế tiếp là dải đô thị đồng bằng sông Hằng phía Bắc: **Delhi (AQI trung vị 236.9)**, **Gurugram (203.8)**, **Lucknow (191.6)**, và **Patna (167.8)**, toàn bộ hộp IQR đều nằm sâu trong vùng Poor và Very Poor.<br>- Chênh lệch từ **5 đến 13 lần** so với các đô thị ven biển Nam Ấn và vùng núi Đông Bắc (Aizawl 27.0, Shillong 46.4, Thiruvananthapuram 66.1). Dù dân số và xe cộ khổng lồ, Mumbai (90.4) và Chennai (97.2) sạch hơn Delhi 2.4–2.6 lần nhờ gió biển khuếch tán. | **Chart 1**<br>*(Horizontal Boxplot)* | **Quản lý chất lượng không khí theo lưu vực (*Airshed Management*):**<br>- Ô nhiễm không có biên giới hành chính; khói bụi bị giam hãm bởi địa hình bồn địa phía nam dãy Himalaya.<br>- Cần cơ chế điều phối liên bang quản lý chung toàn bộ lưu vực sông Hằng thay vì các biện pháp riêng lẻ, cục bộ của từng bang. |
+| **2** | **Bất bình đẳng phơi nhiễm y tế tàn khốc giữa các vùng miền:**<br>- Người dân tại **Ahmedabad** phải chịu tới **87.1% số ngày trong năm** rơi vào mức ô nhiễm đáng báo động (trong đó **Severe chiếm 39.6%**, Very Poor 25.6%, Poor 21.9%); số ngày an toàn (Good/Satisfactory) chỉ vỏn vẹn **0.7%** (<3 ngày/năm).<br>- Tại **Delhi**, có **60.8% số ngày ở mức Poor trở lên** (Very Poor 23.9%, Severe 8.3%), số ngày an toàn chỉ vỏn vẹn **5.4%** (<20 ngày/năm, hoàn toàn không có ngày Good). Tương tự: Gurugram có 51.1% ngày Poor+, Lucknow 47.7%, Patna 43.6%.<br>- Đối lập tuyệt đối: **Aizawl đạt 100% ngày an toàn** (Good 77.7%, Satisfactory 22.3%), Coimbatore 96.3%, Shillong 96.5%. | **Chart 2**<br>*(100% Stacked Bar)* | **Ưu tiên y tế dự phòng & Công bằng môi trường (*Environmental Justice*):**<br>- Người dân miền Bắc và Ahmedabad phải phơi nhiễm không khí độc hại suốt hơn 2/3 thời gian của năm.<br>- Ưu tiên ngân sách y tế dự phòng, phát khẩu trang N95, lắp đặt hệ thống lọc khí tại tất cả trường học, bệnh viện và ban hành hướng dẫn cảnh báo hô hấp đặc biệt cho người già và trẻ nhỏ. |
+| **3** | **Tính chu kỳ mùa vụ cực đoan — Bùng nổ mùa đông & Rửa trôi mùa mưa:**<br>- Bụi mịn PM2.5 biến thiên theo hình chữ U đỏ rực: bùng phát từ tháng 10, đạt đỉnh cực đại vào **tháng 11, 12 và tháng 1** (Patna tháng 12 đạt **241.5 µg/m³**, Delhi **211.4 µg/m³**, Lucknow **195.7 µg/m³**, Gurugram **161.4 µg/m³**).<br>- Mức này vượt từ **3 đến 4 lần quy chuẩn quốc gia 24h (60 µg/m³)** và gấp từ **13 đến 16 lần khuyến nghị WHO (15 µg/m³)**.<br>- Mùa mưa gió mùa (T7–T8), nồng độ giảm sâu xuống **23.0–49.6 µg/m³** nhờ cơ chế rửa trôi hạt bụi (*wet scavenging*). Hệ số chênh lệch đông/mưa lên tới **5–6 lần** tại các đại đô thị. | **Chart 3**<br>*(Heatmap Month x City)* | **Kích hoạt Kế hoạch Ứng phó Khẩn cấp Sớm (*Early Winter Action Plan*):**<br>- Hiện tượng **nghịch nhiệt tầng biên (*boundary layer inversion*)** vào mùa đông tạo chiếc "nắp nồi" nhốt chặt phát thải sát mặt đất.<br>- Kế hoạch hành động khẩn cấp (GRAP - cấm đốt rơm rạ, dừng thi công xây dựng hở, kiểm soát xe cũ) phải được tự động kích hoạt sớm từ **tháng 10**, không được đợi đến khi sương mù mù mịt vào tháng 12 mới ứng phó bị động. |
+| **4** | **Quy luật phát thải 2 đỉnh giao thông sáng/đêm và pha quang hóa Ozone buổi trưa:**<br>- Các chất phát thải sơ cấp (PM2.5, NO2, CO) có 2 đỉnh nhọn: Đỉnh sáng (**8h–9h**) vào giờ cao điểm đi làm và Đỉnh đêm muộn (**20h–22h**). Đỉnh đêm cao vượt trội: NO2 lúc 20h cao hơn trung bình ngày **41%**, CO lúc 21h cao hơn **69%**, PM2.5 lúc 22h-23h cao hơn **20%** do xe tải diesel nặng vào nội đô kết hợp lớp nghịch nhiệt đêm hạ thấp.<br>- Đáy nồng độ bụi rơi vào **15h–17h** chiều khi đối lưu nhiệt xáo trộn thẳng đứng.<br>- **Ozone (O3) hoàn toàn ngược pha:** Chạm đáy lúc 7h sáng (21.2 µg/m³) và tăng vọt đạt đỉnh lúc **14h–15h (55.0 µg/m³, cao hơn trung bình ngày 61%, tăng 2.59 lần so với đáy)** do phản ứng quang hóa khi có nắng gắt. Ban đêm mùa đông, PM2.5 lên tới **120.7 µg/m³**.<br>- **Ý nghĩa sinh hoạt:** Nồng độ ô nhiễm biến thiên rất mạnh theo từng khung giờ trong ngày, đòi hỏi các cảnh báo sức khỏe chi tiết theo giờ. | **Chart 4**<br>*(Dual-Panel Line Chart)* | **Điều tiết giao thông thông minh & Hướng dẫn sinh hoạt theo giờ:**<br>- Cấm triệt để hoặc thu phí khí thải cao đối với xe tải nặng diesel đi xuyên tâm nội đô ban đêm (20h–23h), chuyển hướng sang các tuyến vành đai ngoài.<br>- Khuyến cáo người dân và người cao tuổi: **Tránh tập thể dục ngoài trời vào sáng sớm mùa đông** (nồng độ bụi và khí độc đậm đặc nhất) và **hạn chế hoạt động ngoài trời lúc 13h–15h trưa nắng gắt** (thời điểm nồng độ Ozone oxy hóa gây viêm đường thở cao nhất). |
+| **5** | **Bằng chứng thực nghiệm từ phong tỏa COVID-19 (Thiên nhiên tự chữa lành):**<br>- Đợt phong tỏa toàn quốc nghiêm ngặt (25/3–03/5/2020) đóng băng giao thông và công nghiệp, làm **NO2 giảm trung bình 35.4%** và **PM2.5 giảm 30.7%** trên 19 thành phố đối chiếu.<br>- NO2 giảm sâu và nhanh hơn PM2.5 (Ahmedabad giảm **-66.5%**, Kolkata **-59.4%**, Amaravati **-55.8%**, Lucknow **-53.9%**, Delhi **-46.5%**) do phản ánh sự tê liệt tức thì của xe cơ giới; PM2.5 giảm chậm hơn do phát thải nền từ nhiệt điện than và sinh khối.<br>- Nhận diện rõ các ngoại lệ: **Mumbai** NO2 giảm -38.2% nhưng PM2.5 tăng **+30.7%** (do cảng biển hoạt động và khí hậu khô ven biển); **Thiruvananthapuram** NO2 tăng **+93.3%** do trạm đo 2019 ngắt quãng, 2020 đo đầy đủ hơn kết hợp nguồn cục bộ. | **Chart 5**<br>*(Paired Bar Chart)* | **Chuyển đổi giao thông xanh & Khẳng định tiềm năng đảo ngược ô nhiễm:**<br>- Bằng chứng thực nghiệm vô giá chứng minh: Không khí đô thị hoàn toàn có thể trong lành nhanh chóng nếu có chính sách quyết liệt hạn chế phát thải từ xe cơ giới.<br>- Khuyến nghị chính sách: Đẩy mạnh điện hóa 100% xe buýt công cộng, mở rộng mạng lưới Metro ngầm, nâng chuẩn khí thải BS-VI và loại bỏ xe thương mại quá niên hạn. |
+
+---
+
+### 2. Bốn Phát hiện Bổ sung Sâu sắc từ Phân tích Nhóm & Tương quan (Section 4.1 & 4.2):
+
+1. **Bản chất phân phối Lệch phải nặng & Tính tất yếu của Thống kê Phi tham số (Section 4.1):**
+   - Toàn bộ các chất ô nhiễm đều có độ lệch phải rất lớn ($\text{Skewness}_{\text{AQI}} = 2.81$, $\text{Skewness}_{\text{CO}} = 7.53$) và độ nhọn đuôi dày vượt chuẩn ($\text{Kurtosis}_{\text{CO}} = 82.38$, $\text{Kurtosis}_{\text{AQI}} = 16.04$).
+   - Sự chênh lệch lớn giữa Mean và Median (AQI Mean 161.86 so với Median 115.29) khẳng định giá trị trung bình bị bóp méo nặng nề bởi các giá trị ngoại lai cực đoan mùa đông. **Median và IQR là các thước đo khoa học duy nhất hợp lệ, có tính kháng nhiễu (*robust statistics*)** phản ánh chuẩn xác chất lượng không khí đại diện.
+   - Bụi hạt là nhân tố chi phối độc tôn: Tương quan Spearman của AQI với **PM10 đạt $\rho = 0.88$** và **PM2.5 đạt $\rho = 0.84$**.
+
+2. **Sự vắng bóng của "Hiệu ứng Cuối tuần" (*Absence of Weekend Effect* - Section 4.2.3):**
+   - Khác biệt chất lượng không khí giữa ngày làm việc (Thứ 2–Thứ 6) và cuối tuần (Thứ 7–Chủ Nhật) là **hầu như bằng 0**: PM2.5 trung vị chỉ giảm nhẹ **0.58%** (từ 48.49 xuống 48.21 µg/m³), PM10 giảm **1.06%**, NO2 giảm **3.05%**, và AQI trung vị hầu như không đổi (**115.11 so với 115.62, lệch +0.44%**).
+   - *Nguyên nhân cốt lõi*: Các nguồn phát thải nền chủ lực (nhà máy nhiệt điện than liên vùng, đun nấu sinh hoạt bằng củi/than, xe vận tải đường dài) hoạt động liên tục 24/7 không nghỉ cuối tuần; kết hợp với **thời gian lưu lơ lửng của hạt PM2.5 trong khí quyển kéo dài từ 5 đến 7 ngày**, khiến ô nhiễm không thể tự tiêu tán chỉ sau 1–2 ngày nghỉ làm.
+
+3. **Mức độ Nhạy cảm Mùa vụ Cực đoan theo từng Vùng Địa lý (*Seasonal Volatility* - Section 4.2.2):**
+   - Hệ số bùng nổ ô nhiễm Mùa Đông / Mùa Mưa cao nhất cả nước không phải Delhi (gấp 2.37 lần) mà thuộc về **Guwahati (gấp 6.17 lần: từ 46.3 mùa mưa lên 285.4 mùa đông)**, tiếp theo là **Kolkata (gấp 4.34 lần: 59.8 lên 259.5)**, **Patna (gấp 3.77 lần: 94.2 lên 354.9)** và **Lucknow (gấp 3.28 lần)**.
+   - Thung lũng sông và bồn địa Đông Bắc/Đông Ấn là những nơi chịu bẫy nghịch nhiệt mùa đông nặng nề nhất, cần cơ chế kiểm soát rơm rạ và sưởi ấm sinh khối khẩn cấp.
+
+4. **Cảnh báo về Ngộ nhận Dữ liệu theo Năm (*Yearly Evolution Caution* - Section 4.2.5):**
+   - Nồng độ PM2.5 trung vị duy trì mức cao ~44–60 µg/m³ giai đoạn 2015–2019, sau đó hạ xuống **36.1 µg/m³** trong năm 2020.
+   - Cần cảnh báo thận trọng: Con số năm 2020 chỉ ghi nhận 6 tháng đầu năm (chứa đợt phong tỏa nghiêm ngặt COVID-19 và hoàn toàn vắng bóng 3 tháng mùa đông ô nhiễm nhất T10–T12). Do đó, sự sụt giảm này là **biến cố ngoại sinh tạm thời, tuyệt đối không được ngộ nhận là chất lượng không khí đã cải thiện bền vững**.
+
+---
+
+### 3. Giới hạn của Dữ liệu & Định hướng Tiếp theo sang Mô hình Machine Learning (*Limitations & Next Steps — Section 5 & 6*):
+
+- **Giới hạn 1 (Độ bao phủ không gian - Spatial Coverage):** Dữ liệu tập trung ở 26 đô thị lớn với mạng lưới trạm đo nội đô, chưa bao quát được các đô thị cấp hai và dải nông thôn rộng lớn nơi tập trung hoạt động đốt sinh khối ngoài trời. Cần bổ sung dữ liệu viễn thám vệ tinh (AOD - Aerosol Optical Depth) để mở rộng độ phủ.
+- **Giới hạn 2 (Thiếu các biến thời tiết vi khí hậu - Meteorological Drivers):** Bộ dữ liệu hiện tại chỉ gồm nồng độ các chất hóa học, hoàn toàn thiếu các thông số khí tượng then chốt như nhiệt độ, độ ẩm tương đối, tốc độ/hướng gió và chiều cao tầng hòa trộn khí quyển (*planetary boundary layer height*).
+- **Giới hạn 3 (Tính liên tục của trạm đo & dữ liệu khuyết):** Dữ liệu năm 2020 kết thúc vào ngày 01/07/2020; một số thành phố (Kochi, Ernakulam, Aizawl) chỉ có chuỗi quan sát ngắn vài tháng.
+- **Cầu nối Chiến lược sang Phần 5 (Feature Engineering & Machine Learning):**
+  + Tận dụng các phát hiện EDA ở trên để kiến trúc các đặc trưng kỹ thuật (*Feature Engineering*):
+    - **Đặc trưng độ trễ thời gian (Lag features):** Tạo các biến trễ $t-1$, $t-2$, $t-24$ giờ và $t-7$ ngày phản ánh tính quán tính và thời gian lưu khí quyển của PM2.5.
+    - **Đặc trưng chu kỳ thời gian (Cyclical Encoding):** Áp dụng biến đổi hàm lượng giác $(\sin, \cos)$ cho Giờ trong ngày (chu kỳ 24h) và Tháng trong năm (chu kỳ 12 tháng) để mô hình học máy nắm bắt được quy luật 2 đỉnh giao thông và hình thái chữ U mùa đông.
+    - **Đặc trưng thống kê trượt (Rolling Statistics):** Tính trung bình trượt và độ lệch chuẩn trượt (rolling mean/std 6h, 24h) để làm mượt nhiễu đo lường.
+  + Đưa toàn bộ đặc trưng vào huấn luyện các mô hình học máy hồi quy (Linear Regression, Random Forest, Gradient Boosting, XGBoost/LightGBM) nhằm **dự báo chính xác nồng độ AQI và phân loại rủi ro sức khỏe kịp thời**.
+"""
+    ))
 
     return cells
 
