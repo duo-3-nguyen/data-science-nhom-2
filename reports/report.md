@@ -1,5 +1,14 @@
 # BÁO CÁO PHÂN TÍCH CHẤT LƯỢNG KHÔNG KHÍ
 
+# BẢNG PHÂN CÔNG CÔNG VIỆC NHÓM
+
+| STT | Họ và tên | Mã sinh viên | Công việc được phân công |
+|---:|---|---|---|
+| 2 | Nguyễn Quý Dương | BSE252335 | Trưởng nhóm; làm sạch dữ liệu (Data Cleaning); hỗ trợ phân tích dữ liệu |
+| 1 | Trần Tuấn Dũng | BSE252072 | Phân tích dữ liệu |
+| 3 | Phạm Văn Quang | BSE250035 | Làm sạch dữ liệu (Data Cleaning); hỗ trợ phân tích dữ liệu |
+| 4 | Đoàn Trần Gia Phong | BIT250270 | Phân tích dữ liệu |
+
 # I. BỐI CẢNH VÀ MỤC TIÊU
 
 ## 1.1. Bối cảnh
