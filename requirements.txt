@@ -4,3 +4,4 @@ matplotlib
 seaborn
 plotly
 nbformat>=5.9.0
+ipywidgets
